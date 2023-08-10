@@ -8,7 +8,8 @@ import io.grpc.ManagedChannelBuilder;
 public class Client {
     public static void main(String[] args) {
         ManagedChannel channel= ManagedChannelBuilder.forTarget("localhost:8080").
-                usePlaintext().build();
+                usePlaintext().
+                build();
         GreetingServiceGrpc.GreetingServiceBlockingStub stub = GreetingServiceGrpc.newBlockingStub(channel);
         GreatingService.HelloRequest request = GreatingService.HelloRequest.newBuilder()
                 .setName("Kate").build();
